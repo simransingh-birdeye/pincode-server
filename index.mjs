@@ -9,12 +9,11 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 const corsOptions = {
     origin: "http://127.0.0.1:5500/",
-    credentials:true,
+    credentials: true,
 };
 
 route.get("/getPincode", function (req, res) {
-    console.log("calling api");
-    https.get('https://api.ip2location.com/v2/?key=demo&format=json&package=WS25', (resp) => {
+    https.get('https://api.ip2location.io/?key=DEBCA8B98BEF117E0A981F69D536F0D5&format=json', (resp) => {
         let data = '';
         resp.on('data', (chunk) => {
             data += chunk;
