@@ -12,20 +12,21 @@ const corsOptions = {
     credentials:true,
 };
 
-route.get("/getPincode", function (req, res) {
-    https.get('https://api.ip2location.com/v2/?key=demo&format=json&package=WS25', (resp) => {
-        let data = '';
-        resp.on('data', (chunk) => {
-            data += chunk;
-        });
-        resp.on('end', () => {
-            console.log(JSON.parse(data));
-            res.send(JSON.parse(data));
-        });
+app.get("/getPincode", function (req, res) {
+    console.log("calling api");
+    // https.get('https://api.ip2location.com/v2/?key=demo&format=json&package=WS25', (resp) => {
+    //     let data = '';
+    //     resp.on('data', (chunk) => {
+    //         data += chunk;
+    //     });
+    //     resp.on('end', () => {
+    //         console.log(JSON.parse(data));
+    //         res.send(JSON.parse(data));
+    //     });
 
-    }).on("error", (err) => {
-        res.send(err.message);
-    });
+    // }).on("error", (err) => {
+    //     res.send(err.message);
+    // });
 })
 
 app.use("/api", route);
